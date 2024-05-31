@@ -19,6 +19,7 @@
 		6ECE25EC2C0A5D8A004B6869 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE25EB2C0A5D8A004B6869 /* CoinRowView.swift */; };
 		6ECE25EE2C0A5E12004B6869 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE25ED2C0A5E12004B6869 /* PreviewProvider.swift */; };
 		6ECE25F02C0A5FA7004B6869 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE25EF2C0A5FA7004B6869 /* Double.swift */; };
+		6ECE25F22C0A651F004B6869 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE25F12C0A651F004B6869 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		6ECE25EB2C0A5D8A004B6869 /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
 		6ECE25ED2C0A5E12004B6869 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		6ECE25EF2C0A5FA7004B6869 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		6ECE25F12C0A651F004B6869 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				6ECE25D42C0A56E7004B6869 /* Color.swift */,
-				6ECE25ED2C0A5E12004B6869 /* PreviewProvider.swift */,
 				6ECE25EF2C0A5FA7004B6869 /* Double.swift */,
+				6ECE25ED2C0A5E12004B6869 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 		6ECE25DC2C0A57DC004B6869 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6ECE25F12C0A651F004B6869 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ECE25EC2C0A5D8A004B6869 /* CoinRowView.swift in Sources */,
+				6ECE25F22C0A651F004B6869 /* HomeViewModel.swift in Sources */,
 				6ECE25C62C0A5649004B6869 /* ContentView.swift in Sources */,
 				6ECE25E02C0A57ED004B6869 /* HomeView.swift in Sources */,
 				6ECE25C42C0A5649004B6869 /* SwiftfulCryptoApp.swift in Sources */,
