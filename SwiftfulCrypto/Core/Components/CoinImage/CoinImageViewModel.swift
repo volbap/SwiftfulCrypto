@@ -18,7 +18,7 @@ class CoinImageViewModel: ObservableObject {
 
     init(coin: Coin) {
         self.coin = coin
-        self.imageService = CoinImageService(urlString: coin.image)
+        self.imageService = CoinImageService(coin: coin)
         addSubscribers()
     }
 
