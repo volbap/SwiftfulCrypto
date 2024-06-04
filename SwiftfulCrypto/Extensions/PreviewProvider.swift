@@ -210,4 +210,8 @@ enum Mock {
     )
 
     static let homeViewModel = HomeViewModel()
+
+    static let statistic1 = Statistic(title: "Market Cap", value: "$12.5Bn", percentageChange: 25.34)
+    static let statistic2 = Statistic(title: "Total Volume", value: "$1.23Tr")
+    static let statistic3 = Statistic(title: "Portfolio Value", value: "$50.4k", percentageChange: -12.34)
 }

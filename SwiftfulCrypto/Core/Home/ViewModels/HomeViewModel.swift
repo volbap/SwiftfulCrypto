@@ -9,6 +9,10 @@ import Combine
 import Foundation
 
 class HomeViewModel: ObservableObject {
+    @Published var statistics: [Statistic] = [
+        Mock.statistic1, Mock.statistic2, Mock.statistic3, Mock.statistic2
+    ]
+
     @Published var allCoins: [Coin] = []
     @Published var portfolioCoins: [Coin] = []
 
