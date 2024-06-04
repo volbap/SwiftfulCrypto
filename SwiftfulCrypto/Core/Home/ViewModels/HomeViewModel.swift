@@ -11,6 +11,7 @@ import Foundation
 class HomeViewModel: ObservableObject {
     @Published var allCoins: [Coin] = []
     @Published var portfolioCoins: [Coin] = []
+
     @Published var searchText: String = ""
 
     private let dataService = CoinDataService()
@@ -21,10 +22,27 @@ class HomeViewModel: ObservableObject {
     }
 
     func addSubscribers() {
-        dataService.$coins
+        // updates allCoins
+        $searchText
+            .combineLatest(dataService.$coins)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .map(filterCoins)
             .sink { [weak self] coins in
                 self?.allCoins = coins
             }
             .store(in: &cancellables)
+    }
+
+    private func filterCoins(text: String, coins: [Coin]) -> [Coin] {
+        guard !text.isEmpty else {
+            return coins
+        }
+        let lowercasedText = text.lowercased()
+        let filteredCoins = coins.filter { coin -> Bool in
+            coin.name.lowercased().contains(lowercasedText)
+                || coin.symbol.lowercased().contains(lowercasedText)
+                || coin.id.lowercased().contains(lowercasedText)
+        }
+        return filteredCoins
     }
 }
