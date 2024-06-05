@@ -37,6 +37,7 @@
 		6ECE260F2C0FB19C004B6869 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE260E2C0FB19C004B6869 /* MarketDataService.swift */; };
 		6EDB20422C110263001EB9E8 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20402C110263001EB9E8 /* PortfolioContainer.xcdatamodeld */; };
 		6EDB20442C110299001EB9E8 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20432C110299001EB9E8 /* PortfolioDataService.swift */; };
+		6EDB20462C1125AD001EB9E8 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20452C1125AD001EB9E8 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		6ECE260E2C0FB19C004B6869 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		6EDB20412C110263001EB9E8 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		6EDB20432C110299001EB9E8 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		6EDB20452C1125AD001EB9E8 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			children = (
 				6ECE25F72C0A7030004B6869 /* NetworkingManager.swift */,
 				6ECE26002C0A7F61004B6869 /* LocalFileManager.swift */,
+				6EDB20452C1125AD001EB9E8 /* HapticManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				6ECE260F2C0FB19C004B6869 /* MarketDataService.swift in Sources */,
 				6ECE25E72C0A5A74004B6869 /* CircleButtonAnimationView.swift in Sources */,
 				6ECE25EE2C0A5E12004B6869 /* PreviewProvider.swift in Sources */,
+				6EDB20462C1125AD001EB9E8 /* HapticManager.swift in Sources */,
 				6ECE25F02C0A5FA7004B6869 /* Double.swift in Sources */,
 				6ECE25FF2C0A795A004B6869 /* CoinImageService.swift in Sources */,
 				6ECE26072C0FACEE004B6869 /* Statistic.swift in Sources */,
