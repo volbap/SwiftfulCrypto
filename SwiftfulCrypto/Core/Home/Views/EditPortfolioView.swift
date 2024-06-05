@@ -41,6 +41,11 @@ struct EditPortfolioView: View {
                     trailingNavBarButtons
                 }
             }
+            .onChange(of: viewModel.searchText) {
+                if viewModel.searchText == "" {
+                    removeSelectedCoin()
+                }
+            }
         }
     }
 }
@@ -49,13 +54,16 @@ extension EditPortfolioView {
     private var coinsHorizontalList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(viewModel.allCoins) { coin in
+                let coinsToShow = viewModel.searchText.isEmpty
+                    ? viewModel.portfolioCoins
+                    : viewModel.allCoins
+                ForEach(coinsToShow) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) {
-                                selectedCoin = coin
+                                updateSelectedCoin(to: coin)
                             }
                         }
                         .background(
@@ -71,6 +79,17 @@ extension EditPortfolioView {
             }
             .frame(height: 120)
             .padding(.leading)
+        }
+    }
+
+    private func updateSelectedCoin(to coin: Coin) {
+        selectedCoin = coin
+        if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings
+        {
+            quantityText = "\(amount)"
+        } else {
+            quantityText = ""
         }
     }
 
@@ -125,8 +144,13 @@ extension EditPortfolioView {
     }
 
     private func saveChanges() {
-        guard let coin = selectedCoin else { return }
+        guard
+            let coin = selectedCoin,
+            let amount = Double(quantityText)
+        else { return }
+
         // save to portfolio
+        viewModel.updatePortfolio(coin: coin, amount: amount)
 
         // show checkmark
         withAnimation(.easeIn) {
