@@ -21,6 +21,7 @@ struct CoinRowView: View {
             rightColumn
         }
         .font(.subheadline)
+        .background(Color.theme.background) // so the entire row is clickable
     }
 }
 
