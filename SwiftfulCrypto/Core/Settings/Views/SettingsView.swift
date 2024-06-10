@@ -19,14 +19,13 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
+                developerSection
                 swiftfulThinkingSection
                 coinGeckoSection
-                developerSection
                 applicationSection
             }
             .font(.headline)
             .accentColor(.blue)
-            .listStyle(.grouped)
             .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
