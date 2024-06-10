@@ -103,6 +103,10 @@ struct CoinDetail: Codable {
     let description: Description?
     let links: Links?
 
+    var readableDescription: String? {
+        description?.en?.removingHTMLOccurrences
+    }
+
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, description, links
         case blockTimeInMinutes = "block_time_in_minutes"

@@ -12,6 +12,9 @@ class DetailViewModel: ObservableObject {
     @Published var coin: Coin
     @Published var overviewStatistics: [Statistic] = []
     @Published var additionalStatistics: [Statistic] = []
+    @Published var coinDescription: String? = nil
+    @Published var websiteURL: String? = nil
+    @Published var redditURL: String? = nil
     
     private let coinDetailService: CoinDetailDataService
     private var cancellables = Set<AnyCancellable>()
@@ -26,9 +29,17 @@ class DetailViewModel: ObservableObject {
         coinDetailService.$coinDetail
             .combineLatest($coin)
             .map(mapDataToStatistics)
-            .sink { statistics in
-                self.overviewStatistics = statistics.overview
-                self.additionalStatistics = statistics.additional
+            .sink { [weak self] statistics in
+                self?.overviewStatistics = statistics.overview
+                self?.additionalStatistics = statistics.additional
+            }
+            .store(in: &cancellables)
+        
+        coinDetailService.$coinDetail
+            .sink { [weak self] coinDetail in
+                self?.coinDescription = coinDetail?.readableDescription
+                self?.websiteURL = coinDetail?.links?.homepage?.first
+                self?.redditURL = coinDetail?.links?.subredditURL
             }
             .store(in: &cancellables)
     }

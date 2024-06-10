@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var viewModel: DetailViewModel
+    @State private var showFullDescription: Bool = false
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -27,11 +28,12 @@ struct DetailView: View {
                 VStack(spacing: 20) {
                     overviewTitle
                     Divider()
+                    descriptionSection
                     overviewGrid
-
                     additionalTitle
                     Divider()
                     additionalGrid
+                    linksSection
                 }
                 .padding()
             }
@@ -68,12 +70,57 @@ struct DetailView: View {
         }
     }
 
+    private var descriptionSection: some View {
+        ZStack {
+            if let description = viewModel.coinDescription,
+               !description.isEmpty
+            {
+                VStack(alignment: .leading) {
+                    Text(description)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? "Less" : "Read more...")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 4)
+                    }
+                    .accentColor(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+    }
+
     private var additionalGrid: some View {
         LazyVGrid(columns: columns, alignment: .leading, spacing: spacing, pinnedViews: []) {
             ForEach(viewModel.additionalStatistics) { statistic in
                 StatisticView(statistic: statistic)
             }
         }
+    }
+
+    private var linksSection: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            if let website = viewModel.websiteURL,
+               let url = URL(string: website)
+            {
+                Link("Website", destination: url)
+            }
+            if let reddit = viewModel.redditURL,
+               let url = URL(string: reddit)
+            {
+                Link("Reddit", destination: url)
+            }
+        }
+        .accentColor(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
     }
 
     private var navigationBarTrailingItems: some View {

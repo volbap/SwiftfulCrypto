@@ -45,6 +45,7 @@
 		6EDB20532C125B53001EB9E8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20522C125B53001EB9E8 /* DetailViewModel.swift */; };
 		6EDB20552C178DC2001EB9E8 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20542C178DC2001EB9E8 /* ChartView.swift */; };
 		6EDB20572C1791C6001EB9E8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20562C1791C6001EB9E8 /* Date.swift */; };
+		6EDB20592C179795001EB9E8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB20582C179795001EB9E8 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		6EDB20522C125B53001EB9E8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		6EDB20542C178DC2001EB9E8 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		6EDB20562C1791C6001EB9E8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		6EDB20582C179795001EB9E8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				6ECE25D42C0A56E7004B6869 /* Color.swift */,
+				6EDB20582C179795001EB9E8 /* String.swift */,
 				6ECE25EF2C0A5FA7004B6869 /* Double.swift */,
 				6ECE25ED2C0A5E12004B6869 /* PreviewProvider.swift */,
 				6ECE26042C0FA9B2004B6869 /* UIApplication.swift */,
@@ -378,6 +381,7 @@
 				6ECE25D52C0A56E7004B6869 /* Color.swift in Sources */,
 				6ECE25F82C0A7030004B6869 /* NetworkingManager.swift in Sources */,
 				6ECE260F2C0FB19C004B6869 /* MarketDataService.swift in Sources */,
+				6EDB20592C179795001EB9E8 /* String.swift in Sources */,
 				6ECE25E72C0A5A74004B6869 /* CircleButtonAnimationView.swift in Sources */,
 				6ECE25EE2C0A5E12004B6869 /* PreviewProvider.swift in Sources */,
 				6EDB20462C1125AD001EB9E8 /* HapticManager.swift in Sources */,
