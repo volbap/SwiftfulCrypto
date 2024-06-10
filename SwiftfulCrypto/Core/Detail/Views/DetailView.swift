@@ -21,21 +21,27 @@ struct DetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                Text("")
-                    .frame(height: 150)
+            VStack {
+                ChartView(coin: viewModel.coin)
+                    .padding(.vertical)
+                VStack(spacing: 20) {
+                    overviewTitle
+                    Divider()
+                    overviewGrid
 
-                overviewTitle
-                Divider()
-                overviewGrid
-
-                additionalTitle
-                Divider()
-                additionalGrid
+                    additionalTitle
+                    Divider()
+                    additionalGrid
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(viewModel.coin.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                navigationBarTrailingItems
+            }
+        }
     }
 
     private var overviewTitle: some View {
@@ -67,6 +73,16 @@ struct DetailView: View {
             ForEach(viewModel.additionalStatistics) { statistic in
                 StatisticView(statistic: statistic)
             }
+        }
+    }
+
+    private var navigationBarTrailingItems: some View {
+        HStack {
+            Text(viewModel.coin.symbol.uppercased())
+                .font(.headline)
+                .foregroundColor(Color.theme.secondaryText)
+            CoinImageView(coin: viewModel.coin)
+                .frame(width: 25, height: 25)
         }
     }
 }
